@@ -1,4 +1,4 @@
-contacts = {
+{
   "Grillkith resto &cafe": "89433 11777",
   "foneworld_futurepoint": "9072649992",
   "Olala- Designer Fashion Boutique": "07947138503",
@@ -31,26 +31,3 @@ contacts = {
   "7Days Supermarket":"079940 04701"
 
 }
-
-  
-
-def format_phone_number(phone_number):
-    # Remove spaces and leading zeros
-    clean_phone = phone_number.replace(" ", "").lstrip('0')
-    return "+91" + clean_phone
-
-def create_vcard(name, phone_number):
-    formatted_phone_number = format_phone_number(phone_number)
-    return f"""
-BEGIN:VCARD
-VERSION:3.0
-FN:Sales {name}
-TEL:{formatted_phone_number}
-END:VCARD
-"""
-
-with open('contacts_pmna_2.vcf', 'w') as file:
-    for name, phone_number in contacts.items():
-        file.write(create_vcard(name, phone_number))
-
-print("VCF file has been created as 'contacts.vcf'")
